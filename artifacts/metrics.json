@@ -1,0 +1,263 @@
+{
+  "model_name": "superutilizer-risk",
+  "model_version": "1.2.0",
+  "feature_schema_version": "2024.11",
+  "trained_at": "2026-09-07T01:11:05.070604+00:00",
+  "training_rows": 36000,
+  "best_iteration": 147,
+  "holdout": {
+    "n": 12000,
+    "positives": 754,
+    "prevalence": 0.06283333333333334,
+    "roc_auc": 0.8824513968066925,
+    "pr_auc": 0.512034087312583,
+    "brier": 0.04065779806029439,
+    "log_loss": 0.17141291384673574,
+    "recall_at_top_1pct": 0.14323607427055704,
+    "recall_at_top_5pct": 0.46684350132625996,
+    "recall_at_top_10pct": 0.623342175066313,
+    "lift_at_top_5pct": 9.3368700265252
+  },
+  "calibration_split": {
+    "n": 12000,
+    "positives": 755,
+    "prevalence": 0.06291666666666666,
+    "roc_auc": 0.910425825753315,
+    "pr_auc": 0.5416367502268338,
+    "brier": 0.03871777880081419,
+    "log_loss": 0.14086221468867716,
+    "recall_at_top_1pct": 0.1509933774834437,
+    "recall_at_top_5pct": 0.4741721854304636,
+    "recall_at_top_10pct": 0.6437086092715232,
+    "lift_at_top_5pct": 9.48344370860927
+  },
+  "uncalibrated_holdout": {
+    "n": 12000,
+    "positives": 754,
+    "prevalence": 0.06283333333333334,
+    "roc_auc": 0.88401782466952,
+    "pr_auc": 0.5410037727014094,
+    "brier": 0.1172750896167344,
+    "log_loss": 0.38587093266213646,
+    "recall_at_top_1pct": 0.14588859416445624,
+    "recall_at_top_5pct": 0.46551724137931033,
+    "recall_at_top_10pct": 0.6246684350132626,
+    "lift_at_top_5pct": 9.310344827586206
+  },
+  "runner_up_holdout": {
+    "model": "lightgbm",
+    "n": 12000,
+    "positives": 754,
+    "prevalence": 0.06283333333333334,
+    "roc_auc": 0.88072051318217,
+    "pr_auc": 0.5135636763065404,
+    "brier": 0.04069813144254222,
+    "log_loss": 0.17198154496119977,
+    "recall_at_top_1pct": 0.14588859416445624,
+    "recall_at_top_5pct": 0.4535809018567639,
+    "recall_at_top_10pct": 0.6220159151193634,
+    "lift_at_top_5pct": 9.071618037135277
+  },
+  "model_selection": {
+    "selected": "logistic_regression",
+    "incumbent": "logistic_regression",
+    "selection_margin_relative": 0.02,
+    "candidates": {
+      "lightgbm": {
+        "cal_pr_auc": 0.5380892848842372,
+        "cal_roc_auc": 0.9073495504992654
+      },
+      "logistic_regression": {
+        "cal_pr_auc": 0.5416367502268338,
+        "cal_roc_auc": 0.910425825753315
+      }
+    },
+    "challenger_vs_incumbent": {
+      "mean_delta_pr_auc": -0.0038091557501636524,
+      "ci_low": -0.01238624812733931,
+      "ci_high": 0.004776515526310897,
+      "significant": false
+    }
+  },
+  "tier_cuts": {
+    "rising": 0.14335060449050085,
+    "high": 0.3170731707317073,
+    "very_high": 0.6727272727272727
+  },
+  "probability_bounds": {
+    "floor": 0.001,
+    "ceiling": 0.8812,
+    "observed_top_rate": 0.8167,
+    "observed_bottom_rate": 0.0013,
+    "top_n": 240
+  },
+  "tier_summary": {
+    "low": {
+      "n": 10139,
+      "share_of_panel": 0.8449166666666666,
+      "observed_outcome_rate": 0.02150113423414538,
+      "mean_predicted": 0.017440880889492322
+    },
+    "rising": {
+      "n": 1083,
+      "share_of_panel": 0.09025,
+      "observed_outcome_rate": 0.13019390581717452,
+      "mean_predicted": 0.15573930535176392
+    },
+    "high": {
+      "n": 502,
+      "share_of_panel": 0.041833333333333333,
+      "observed_outcome_rate": 0.35856573705179284,
+      "mean_predicted": 0.3984871949039759
+    },
+    "very_high": {
+      "n": 276,
+      "share_of_panel": 0.023,
+      "observed_outcome_rate": 0.7789855072463768,
+      "mean_predicted": 0.8268645682892576
+    }
+  },
+  "reliability": [
+    {
+      "bin": 2,
+      "n": 1435,
+      "mean_predicted": 1.9957844776551164e-06,
+      "observed_rate": 0.004878048780487805
+    },
+    {
+      "bin": 3,
+      "n": 1239,
+      "mean_predicted": 0.0031154304225475904,
+      "observed_rate": 0.005649717514124294
+    },
+    {
+      "bin": 4,
+      "n": 1722,
+      "mean_predicted": 0.004662004662004663,
+      "observed_rate": 0.007549361207897794
+    },
+    {
+      "bin": 5,
+      "n": 915,
+      "mean_predicted": 0.011753634553905493,
+      "observed_rate": 0.012021857923497269
+    },
+    {
+      "bin": 6,
+      "n": 1624,
+      "mean_predicted": 0.01273257899190252,
+      "observed_rate": 0.017857142857142856
+    },
+    {
+      "bin": 7,
+      "n": 1035,
+      "mean_predicted": 0.024779735917785827,
+      "observed_rate": 0.02705314009661836
+    },
+    {
+      "bin": 8,
+      "n": 1597,
+      "mean_predicted": 0.03926471058793801,
+      "observed_rate": 0.055103318722604884
+    },
+    {
+      "bin": 9,
+      "n": 1165,
+      "mean_predicted": 0.11172883445980872,
+      "observed_rate": 0.07982832618025751
+    },
+    {
+      "bin": 10,
+      "n": 1268,
+      "mean_predicted": 0.40371762769930936,
+      "observed_rate": 0.37697160883280756
+    }
+  ],
+  "subgroups": {
+    "age_18_44": {
+      "n": 3522,
+      "prevalence": 0.029244747302668937,
+      "roc_auc": 0.8470426542706805,
+      "mean_predicted": 0.026352579424939977,
+      "calibration_ratio": 0.9011047061615398
+    },
+    "age_45_64": {
+      "n": 6028,
+      "prevalence": 0.051094890510948905,
+      "roc_auc": 0.8529958677685952,
+      "mean_predicted": 0.05095010032175566,
+      "calibration_ratio": 0.9971662491543608
+    },
+    "age_65_plus": {
+      "n": 2450,
+      "prevalence": 0.14,
+      "roc_auc": 0.8914509596638168,
+      "mean_predicted": 0.15257671928570293,
+      "calibration_ratio": 1.0898337091835923
+    },
+    "medicaid_or_uninsured": {
+      "n": 3044,
+      "prevalence": 0.10151116951379763,
+      "roc_auc": 0.8788833472367665,
+      "mean_predicted": 0.10930509580645179,
+      "calibration_ratio": 1.076779002054496
+    },
+    "commercial_or_medicare": {
+      "n": 8956,
+      "prevalence": 0.04968736042876284,
+      "roc_auc": 0.8746400890321712,
+      "mean_predicted": 0.04924399733020486,
+      "calibration_ratio": 0.991076944020932
+    },
+    "high_deprivation_area": {
+      "n": 1298,
+      "prevalence": 0.1941448382126348,
+      "roc_auc": 0.8342362438920756,
+      "mean_predicted": 0.2050687132913225,
+      "calibration_ratio": 1.0562666263973677
+    },
+    "low_deprivation_area": {
+      "n": 1244,
+      "prevalence": 0.016881028938906754,
+      "roc_auc": 0.8727757660709419,
+      "mean_predicted": 0.009425748556116413,
+      "calibration_ratio": 0.5583633906575627
+    },
+    "any_social_risk": {
+      "n": 3749,
+      "prevalence": 0.11469725260069352,
+      "roc_auc": 0.8691147515712915,
+      "mean_predicted": 0.11900027215535004,
+      "calibration_ratio": 1.0375163263032727
+    },
+    "no_social_risk": {
+      "n": 8251,
+      "prevalence": 0.03926796751908859,
+      "roc_auc": 0.8628484146229405,
+      "mean_predicted": 0.03970693630029653,
+      "calibration_ratio": 1.011178800659712
+    }
+  },
+  "top_features_by_gain": {
+    "care_continuity_score": 0.701817337318141,
+    "has_primary_care": 0.68166543149925,
+    "medication_count": 0.493467658374513,
+    "medication_complexity": 0.3347463429025905,
+    "area_deprivation_index": 0.3061252516268331,
+    "missed_appointments_12mo": 0.2458034848277136,
+    "prior_30d_readmission": 0.24259649556725052,
+    "adherence_gap": 0.17727505381320557,
+    "medication_adherence_pdc": 0.17727505381320313,
+    "acute_utilization_index": 0.15844873029764833,
+    "ed_visits_12mo": 0.14023847413874835,
+    "inpatient_admits_12mo": 0.13868793920563294,
+    "falls_12mo": 0.1340769922362661,
+    "chronic_condition_count": 0.11990221393709158,
+    "high_acuity_condition_count": 0.10995647230837552,
+    "ed_to_outpatient_ratio": 0.10332370807643362,
+    "heart_failure": 0.10300759062736355,
+    "copd": 0.09804389026560127,
+    "high_risk_med_count": 0.09452244020852911,
+    "caregiver_support": 0.0870986297017455
+  }
+}
