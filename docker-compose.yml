@@ -1,0 +1,35 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SURISK_ENVIRONMENT: production
+      SURISK_DATABASE_URL: postgresql+psycopg://surisk:surisk@db:5432/surisk
+      SURISK_CORS_ORIGINS: http://localhost:8000
+      # SURISK_ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      # SURISK_API_KEY: ${SURISK_API_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: surisk
+      POSTGRES_PASSWORD: surisk
+      POSTGRES_DB: surisk
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Applied on first boot only; thereafter use Alembic migrations.
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U surisk"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  pgdata:
